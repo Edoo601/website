@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Genk Kapak</title>
+  <style>
+    /* Reset dan dasar */
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    /* Header */
+    header {
+      background: #004aad;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      user-select: none;
+      text-transform: uppercase;
+      cursor: default;
+      font-family: 'Montserrat', sans-serif;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-links a {
+      color: white;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+      letter-spacing: 0.8px;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background: #002f70;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    /* Tombol Menu Mobile */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+      justify-content: space-between;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+    .menu-toggle span {
+      height: 4px;
+      background: white;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .menu-toggle:focus {
+      outline: 2px solid #ff5c00;
+      outline-offset: 2px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #004aadcc 0%, #2a69accc 100%), 
+        url('download.jpg') no-repeat center center/cover;
+      height: 95vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.6);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .hero-content {
+      max-width: 680px;
+      background-color: rgba(0, 0, 0, 0.48);
+      padding: 40px 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(255,255,255,0.15);
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      font-weight: 900;
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin-bottom: 35px;
+      font-weight: 500;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .btn-primary {
+      background-color: #ff6200;
+      color: white;
+      padding: 14px 38px;
+      border: none;
+      border-radius: 35px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      letter-spacing: 1.1px;
+      box-shadow: 0 6px 25px rgba(255, 98, 0, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #cc4c00;
+      box-shadow: 0 8px 30px rgba(204, 76, 0, 0.8);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 25px 80px 25px;
+      background: white;
+      margin: 25px 0 40px 0;
+      border-radius: 16px;
+      box-shadow: 0px 12px 28px rgba(0,0,0,0.12);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: box-shadow 0.3s ease;
+    }
+    section:hover {
+      box-shadow: 0px 16px 48px rgba(0,0,0,0.18);
+    }
+    section h2 {
+      font-size: 2.6rem;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #004aad;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    section p.lead {
+      max-width: 760px;
+      margin: 0 auto 48px auto;
+      text-align: center;
+      font-size: 1.3rem;
+      color: #555;
+      font-weight: 560;
+      line-height: 1.65;
+    }
+
+    /* About Us */
+    #about-us .content {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: #444;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-align: justify;
+    }
+
+    /* Services */
+    #services .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 36px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-item {
+      background: #f4f8ff;
+      border-radius: 14px;
+      padding: 30px 28px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: default;
+      user-select: none;
+    }
+    .service-item:hover {
+      transform: translateY(-13px);
+      box-shadow: 0 22px 48px rgba(0,0,0,0.15);
+    }
+    .service-item h3 {
+      margin-top: 22px;
+      color: #004aad;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+    }
+    .service-item p {
+      margin-top: 14px;
+      font-size: 1rem;
+      color: #4d4d4d;
+      line-height: 1.55;
+    }
+    .service-item svg {
+      filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.07));
+      transition: filter 0.3s ease;
+    }
+    .service-item:hover svg {
+      filter: drop-shadow(2px 2px 5px rgba(0,74,173,0.35));
+    }
+
+    /* Team */
+    #team .team-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 38px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .team-member {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.22);
+    }
+    .team-member img {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      margin-bottom: 18px;
+      border: 5px solid #004aad;
+      box-shadow: 0 3px 15px rgba(0,74,173,0.35);
+      transition: box-shadow 0.3s ease;
+    }
+    .team-member:hover img {
+      box-shadow: 0 8px 20px rgba(0,74,173,0.65);
+    }
+    .team-member h4 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      color: #004aad;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+    .team-member p {
+      color: #555;
+      font-size: 1.05rem;
+      margin-bottom: 0;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+    }
+
+    /* Contact */
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #contact label {
+      font-weight: 700;
+      color: #222;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+    #contact input,
+    #contact textarea {
+      padding: 15px 18px;
+      border-radius: 12px;
+      border: 1.8px solid #ccc;
+      font-size: 1.1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      font-weight: 520;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+    }
+    #contact input::placeholder,
+    #contact textarea::placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #004aad;
+      box-shadow: 0 0 8px #004aadcc;
+      background-color: #fcfcfe;
+    }
+    #contact textarea {
+      min-height: 140px;
+      line-height: 1.5;
+    }
+    #contact button {
+      align-self: center;
+      background: #004aad;
+      color: white;
+      font-weight: 800;
+      border: none;
+      padding: 16px 48px;
+      border-radius: 36px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      box-shadow: 0 8px 28px rgba(0,74,173,0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      position: relative;
+      user-select: none;
+    }
+    #contact button:hover,
+    #contact button:focus {
+      background: #002f70;
+      box-shadow: 0 12px 46px rgba(0,47,112,0.85);
+      transform: scale(1.07);
+      outline: none;
+    }
+    /* Spinner */
+    #contact button .spinner {
+      display: none;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      position: absolute;
+      left: 18px;
+      top: calc(50% - 10px);
+    }
+    #contact button.sending .spinner {
+      display: inline-block;
+    }
+    #contact button.sending .btn-text {
+      opacity: 0.65;
+    }
+
+    /* Pesan sukses & error */
+    #contact .success-message {
+      max-width: 600px;
+      margin: 28px auto 0 auto;
+      background: #e6ffe6;
+      border: 1.8px solid #32a832;
+      color: #2a7f2a;
+      padding: 18px 25px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+      display: none;
+      user-select: none;
+      font-size: 1.15rem;
+      box-shadow: 0 6px 22px rgba(50, 168, 50, 0.4);
+    }
+    #contact .error-message {
+      max-width: 600px;
+      margin: 28px auto 0 auto;
+      background: #ffdbdb;
+      border: 1.8px solid #d8000c;
+      color: #d8000c;
+      padding: 18px 25px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+      display: none;
+      user-select: none;
+      font-size: 1.15rem;
+      box-shadow: 0 6px 22px rgba(216, 0, 12, 0.42);
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 22px 10px;
+      font-size: 0.92rem;
+      user-select: none;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    /* Responsif */
+    @media (max-width: 920px) {
+      .hero-content h1 {
+        font-size: 3.1rem;
+      }
+      .hero-content p {
+        font-size: 1.22rem;
+      }
+      section h2 {
+        font-size: 2.3rem;
+      }
+      .service-item {
+        padding: 24px 18px;
+      }
+      .team-member h4 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        background-color: #004aad;
+        height: calc(100vh - 70px);
+        width: 240px;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        border-radius: 0 0 0 14px;
+        padding-top: 40px;
+        box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+      }
+      .nav-links.open {
+        transform: translateX(0);
+      }
+      .nav-links a {
+        font-size: 1.35rem;
+        padding: 14px 26px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .container {
+        width: 95%;
+        padding: 0 12px;
+      }
+      .hero {
+        height: 80vh;
+        padding: 0 10px;
+      }
+      .hero-content {
+        padding: 28px 20px;
+      }
+    }
+
+    /* Spinner animation */
+    @keyframes spin {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+     /* Text Tentang Kami */
+    .center-text{
+    text-align: center;
+    }
+    </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo" tabindex="0">Genk Kapak</div>
+      <div class="nav-links" id="nav-links">
+        <a href="#about-us" tabindex="0">Tentang Kami</a>
+        <a href="#services" tabindex="0">Pesan Kesan</a>
+        <a href="#team" tabindex="0">Tim Kami</a>
+        <a href="#contact" tabindex="0">Kontak</a>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menu-toggle" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" role="banner">
+  <div class="hero-content" role="heading" aria-level="1">
+    <h1>Selamat Datang di Genk Kapak</h1>
+    <p>Saya Kelompok Genk Kapak Sedang Belajar Membuat Website Sederhana.</p>
+    <a href="#contact" class="btn-primary" tabindex="0">Hubungi Kami</a>
+  </div>
+</section>
+
+<section id="about-us" aria-label="Tentang Kami">
+  <h2>Tentang Kami</h2>
+  <p class="lead">Kami Murid Dari Sekolah SMKN1BRONDONG</p>
+  <div class="center-text">
+    <div class="content">
+    <p>Website Ini Di Buat Pada Tahun 2025 Bulan Mei Tanggal 24.</p>
+    <p>Kelompok Kami Terdiri 5 Anggota Hobi Kami Makan Tidur.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" aria-label="Layanan Kami">
+  <h2>Pesan Kesan</h2>
+  <p class="lead">Kami akan berusaha semaksimal mungkin untuk kedepanya agar menjadi yang terbaik dan berguna untuk orang lain.</p>
+  <div class="service-list">
+    <div class="service-item" tabindex="0" aria-label="Layanan Konsultasi">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#004aad" width="40" height="40" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4S8 5.79 8 8s1.79 4 4 4zM2 18v2h20v-2c0-3.31-8-5-10-5s-10 1.69-10 5z"/></svg>
+      <h3>Ceo Owner</h3>
+      <p>EDO</p>
+      <p>Terimakasih,
+        Saya Selaku Ceo Owner Sangat Senang Karena Telah Mengunjungi Website Kelomopok Genk Kapak
+      </p>
+    </div>
+    <div class="service-item" tabindex="0" aria-label="Layanan Pengembangan Software">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#004aad" width="40" height="40" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 012 2v11a2 2 0 01-2 2h-4l-4 4v-4H5a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+      <h3>Slogan Kelompok Kami</h3>
+      <p>"Tidak ada kesuksesan tanpa kegagalan. Teruslah melangkah."</p>
+      <p>"Saat kamu ingin menyerah, ingatlah mengapa kamu memulai."</p>
+      <p>"Kegagalan bukan akhir, tapi awal dari keberhasilan."</p>
+    </div>
+    <div class="service-item" tabindex="0" aria-label="Layanan Dukungan dan Pemeliharaan">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#004aad" width="40" height="40" viewBox="0 0 24 24"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm3-9h-2v5h-2v-5H9l3-3 3 3z"/></svg>
+      <h3>Dukungan & Saran</h3>
+      <p>Saya Akan Berusaha Untuk Mengembangkan Website Ini Bersama Kelompok Saya.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team" aria-label="Tim Kami">
+  <h2>Kenali Kelompok Kami</h2>
+  <p class="lead">Sekelompok Yang Suka Makan.</p>
+  <div class="team-list">
+    <div class="team-member" tabindex="0" aria-label="Ketua Edo, CEO">
+      <img src="Edo.png" alt="Edo - Ketua" />
+      <h4>Edo</h4>
+      <p>Ketua</p>
+    </div>
+    <div class="team-member" tabindex="0" aria-label="Anggota tim Edo, A">
+      <img src="Fito.png" alt="Fito - Anggota" />
+      <h4>Fito</h4>
+      <p>Anggota</p>
+    </div>
+    <div class="team-member" tabindex="0" aria-label="Anggota tim Edo, A">
+      <img src="Adib.png" alt="Adib - Anggota" />
+      <h4>Adib</h4>
+      <p>Anggota</p>
+    </div>
+    <div class="team-member" tabindex="0" aria-label="Anggota tim Edo, A">
+      <img src="Ican.png" alt="Ican - Anggota" />
+      <h4>Ican</h4>
+      <p>Anggota</p>
+    </div>
+    <!-- /* Gambar Ke 5 */ -->
+    <div class="team-member" tabindex="0" aria-label="Anggota tim Edo, A">
+      <img src="Zubairi.png" alt="Zubairi - Anggota" />
+      <h4>Zubairi</h4>
+      <p>Anggota</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" aria-label="Kontak Kami">
+  <h2>Kontak Kami</h2>
+  <form id="contact-form" novalidate>
+    <label for="name">Nama</label>
+    <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required aria-required="true" />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Alamat email Anda" required aria-required="true" />
+    <label for="message">Pesan</label>
+    <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini..." required aria-required="true"></textarea>
+    <button type="submit" aria-label="Kirim pesan">
+      <span class="spinner" aria-hidden="true"></span>
+      <span class="btn-text">Kirim Pesan</span>
+    </button>
+  </form>
+  <div class="success-message" id="success-message" role="alert" aria-live="polite"></div>
+  <div class="error-message" id="error-message" role="alert" aria-live="assertive"></div>
+</section>
+
+<footer>
+  &copy; 2025 Website Genk Kapak Terimakasih.
+</footer>
+
+<script>
+  // Toggle menu mobile
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+  });
+
+  // Penanganan form kontak yang ditingkatkan
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const submitButton = form.querySelector('button');
+  const spinner = submitButton.querySelector('.spinner');
+  const btnText = submitButton.querySelector('.btn-text');
+
+  function showSuccess(msg) {
+    successMessage.style.display = 'block';
+    successMessage.textContent = msg;
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = '';
+  }
+  function showError(msg) {
+    errorMessage.style.display = 'block';
+    errorMessage.textContent = msg;
+    successMessage.style.display = 'none';
+    successMessage.textContent = '';
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    successMessage.style.display = 'none';
+    successMessage.textContent = '';
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = '';
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    // Validasi
+    if (!name || !email || !message) {
+      showError('Silakan isi semua kolom yang wajib diisi.');
+      return;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      showError('Silakan masukkan alamat email yang valid.');
+      return;
+    }
+
+    // Nonaktifkan tombol dan tampilkan spinner
+    submitButton.disabled = true;
+    submitButton.classList.add('sending');
+    
+    // Simulasi proses pengiriman
+    setTimeout(() => {
+      submitButton.disabled = false;
+      submitButton.classList.remove('sending');
+      form.reset();
+
+      showSuccess(`Terima kasih telah menghubungi kami, ${name}! Kami akan segera menghubungi Anda.`);
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>
+
